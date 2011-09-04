@@ -1,0 +1,36 @@
+<IndexSettings>
+  <DefaultIncludedPath>
+    <string>*.blah</string>
+    <string>*.yo</string>
+  </DefaultIncludedPath>
+  <DefaultExcludedPath>
+    <string>*.xml</string>
+    <string>*.test</string>
+  </DefaultExcludedPath>
+  <Projects>
+    <Project>
+      <ProjectName>testproj</ProjectName>
+      <Path>c:\tetsts</Path>
+      <IncludedPath>
+        <string>test123</string>
+        <string>test2</string>
+      </IncludedPath>
+      <ExcludedPath>
+        <string>*.cs</string>
+        <string>*.vb</string>
+      </ExcludedPath>
+    </Project>
+    <Project>
+      <ProjectName>testproj</ProjectName>
+      <Path>c:\tetsts</Path>
+      <IncludedPath>
+        <string>test123</string>
+        <string>test2</string>
+      </IncludedPath>
+      <ExcludedPath>
+        <string>*.cs</string>
+        <string>*.vb</string>
+      </ExcludedPath>
+    </Project>
+  </Projects>
+</IndexSettings>

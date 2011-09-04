@@ -1,0 +1,1 @@
+http://localhost:8983/solr/select/?q=odata&start=0&rows=10&indent=on&hl=true&hl.fl=*&hl.simple.pre=%3Cb%3E&hl.simple.post=%3C/b%3E&fl=id,name,timestamp&echoparms=true

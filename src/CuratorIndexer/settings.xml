@@ -1,0 +1,38 @@
+<IndexSettings>
+  <SolrUrl>http://localhost:8989/solr-example</SolrUrl>
+  <DefaultIncludedPath>
+    <string>.cs$</string>
+    <string>.vb$</string>
+    <string>.xml$</string>
+    <string>.config$</string>
+    <string>.include$</string>
+    <string>.cmd$</string>
+    <string>.bat$</string>
+    <string>.build$</string>
+    <string>.sql$</string>
+    <string>.html$</string>
+    <string>.htm$</string>
+    <string>.aspx$</string>
+    <string>.asp$</string>
+    <string>.asmx$</string>
+    <string>.svc$</string>
+    <string>.ascx$</string>
+    <string>.js$</string>
+    <string>.css$</string>
+    <string>.edmx$</string>
+   </DefaultIncludedPath>
+  <DefaultExcludedPath>
+    <string>\\bin\\</string>
+    <string>CM_properties</string>
+  </DefaultExcludedPath>
+  <Projects>
+  
+    <Project>
+      <Category>Category 1</Category>
+      <ProjectName>Code Curator</ProjectName>
+      <Path>C:\Users\awl\Documents\My Dropbox\Stuff\CodeCurator</Path>
+    </Project>
+
+ 
+  </Projects>
+</IndexSettings>

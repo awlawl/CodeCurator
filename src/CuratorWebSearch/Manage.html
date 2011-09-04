@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Manage Index</title>
+    
+    <script src="Scripts/jquery-1.6.js" type="text/javascript"></script>
+    <script src="Scripts/jquery.tmpl.js" type="text/javascript"></script>
+    <script src="Scripts/jquery.jsonp-2.1.4.min.js" type="text/javascript"></script>
+    <script src="Scripts/SolrUrl.js" type="text/javascript"></script>
+    <script src="Scripts/Manage.js" type="text/javascript"></script>
+    
+    
+    <style>
+           html { font-family: Arial, Sans-Serif; font-size: small;}
+    </style>
+</head>
+<body>
+<div id="facetsDiv">
+</div>
+<div id="loadingScreen" style="display: none">
+    <center>
+    <h1>Loading Results</h1>
+    <img src="Images/ajax-loader.gif" /></center>
+    </div>
+
+ <script id="facetsTemplate" type="text/x-jQuery-tmpl">
+        Project:
+        <ul>
+        {{each(i,facet) projectFacets}}
+            <li><a href="#" class="projectRemoveLink">${facet.term}</a> (${facet.count})</li>
+        {{/each}}
+        </ul>
+        
+        <br/>
+
+    </script>
+</body>
+</html>
