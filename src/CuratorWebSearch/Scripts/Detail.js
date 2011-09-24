@@ -1,14 +1,29 @@
 ﻿var _urlParams = {};
+var docid = "";
+var openTag = "<span class='searchtext'>";
+var closeTag = "</span>";
 
 $(document).ready(function () {
     //get the id from the query string
-    var docid = _urlParams["id"];
+    docid = _urlParams["id"];
+    var searchString = _urlParams["searchQuery"];
+
+    var url = _solrHost + "/select/?start=0&rows=1&indent=on&hl=true&hl.snippets=1&hl.fragsize=0&hl.fl=*&hl.simple.pre=" + escape(openTag) + "&hl.simple.post=" + escape(closeTag) + "&fl=id,filedata,name&wt=json&json.wrf=?&q=" + searchString + " id:" + docid;
 
     //get the search results via json
-    $.getJSON(_solrHost + "/select/?start=0&rows=1&indent=on&fl=id,filedata,name&wt=json&json.wrf=?&q=id:" + docid,
+    $.getJSON(url,
                     function (result) {
+
+                        var filedata = result.response.docs[0].filedata;
+
                         //set the body of the page to the resulting document
-                        $("#preMainBody").text(result.response.docs[0].filedata);
+                        $("#preMainBody").text(filedata);
+
+                        //setting the hl.fragsize to 0 means that it returns the whole document as highlighted. Easy!
+                        if (result.highlighting[docid].filedata) {
+                                $("#preMainBody").html(result.highlighting[docid].filedata[0]);
+                        }
+
 
                         //stolen from http://stackoverflow.com/questions/180103/jquery-how-to-change-title-of-document-during-ready
                         document.title = result.response.docs[0].name;

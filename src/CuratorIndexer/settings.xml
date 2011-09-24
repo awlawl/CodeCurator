@@ -31,6 +31,9 @@
       <Category>Category 1</Category>
       <ProjectName>Code Curator</ProjectName>
       <Path>C:\Users\awl\Documents\My Dropbox\Stuff\CodeCurator</Path>
+      <IncludedPath>
+        <string>.txt$</string>
+      </IncludedPath>
     </Project>
 
  
