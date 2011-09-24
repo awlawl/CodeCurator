@@ -8,8 +8,8 @@
     <ProjectGuid>{6A0D4DA7-3A91-4C83-90DE-26369822456E}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CodeIndex</RootNamespace>
-    <AssemblyName>CodeIndex</AssemblyName>
+    <RootNamespace>CuratorIndexer</RootNamespace>
+    <AssemblyName>CuratorIndexer</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

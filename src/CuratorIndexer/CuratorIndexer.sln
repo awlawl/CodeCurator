@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Web Developer Express 2010
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CuratorIndexer", "CuratorIndexer.csproj", "{6A0D4DA7-3A91-4C83-90DE-26369822456E}"
 EndProject
 Global

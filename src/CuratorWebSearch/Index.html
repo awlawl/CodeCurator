@@ -63,7 +63,7 @@
             Showing records ${(_searchParams.pageSize*_searchParams.pageNumber)+1} through ${getMaxRecordCount()}<br/><br/>
 
              {{each(i,doc) response.docs}}
-                <a href="detail.html?id=${doc.id}" target="_blank"><b>${doc.name}</b></a><br/>
+                <a href="detail.html?id=${doc.id}&searchQuery=${responseHeader.params.q}" target="_blank"><b>${doc.name}</b></a><br/>
                ..{{html highlighting[doc.id].filedata}}..
                <br/>
                <small>${doc.fullpath}</small>
