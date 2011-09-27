@@ -8,7 +8,7 @@ $(document).ready(function () {
     docid = _urlParams["id"];
     var searchString = _urlParams["searchQuery"];
 
-    var url = _solrHost + "/select/?start=0&rows=1&indent=on&hl=true&hl.snippets=1&hl.fragsize=0&hl.fl=*&hl.simple.pre=" + escape(openTag) + "&hl.simple.post=" + escape(closeTag) + "&fl=id,filedata,name&wt=json&json.wrf=?&q=" + searchString + " id:" + docid;
+    var url = _solrHost + "/select/?start=0&rows=1&indent=on&hl=true&hl.snippets=1&hl.fragsize=0&hl.maxAnalyzedChars=1048576&hl.fl=*&hl.simple.pre=" + escape(openTag) + "&hl.simple.post=" + escape(closeTag) + "&fl=id,filedata,name&wt=json&json.wrf=?&q=" + searchString + " id:" + docid;
 
     //get the search results via json
     $.getJSON(url,
