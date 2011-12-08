@@ -8,80 +8,92 @@
     <script src="Scripts/jquery.jsonp-2.1.4.min.js" type="text/javascript"></script>
     <script src="Scripts/SolrUrl.js" type="text/javascript"></script>
     <script src="Scripts/Index.js" type="text/javascript"></script>
-    <style>
-           html { font-family: Arial, Sans-Serif; font-size: small;}
+    
+    <link href="bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 5px;
+      }
+      html { font-family: Arial, Sans-Serif; font-size: small;}
     </style>
 
 </head>
 <body>
-    <a name="top" />
+    <a name="top" ></a>
+
+    <div class="container-fluid">
+      <div class="sidebar">
+        <div class="well">
+		  <h1>Code Curator</h1>
+          <div id="facetsDiv"> </div>
+
+        </div>
+      </div>
+      <div class="content">
+	    <div class="hero-unit">
+		  <h3>Search for...</h3>
+          <input id="txtSearch" style="width: 500px"/>
+		  <select id="lstPerPage">
+			<option>10</option>
+			<option selected>20</option>
+			<option>50</option>
+			<option>100</option>
+		  </select>
+          <input class="btn primary large" type="button" value="Go" id="btnSearch" />
+        </div>
+		<div class="hero-unit">
+		<div id="resultsDiv">    
+		</div>
+		</div>
+	  </div>
+	</div>  
     
-    <table>
-    <tr>
-    <td style="width:200px"><h1>Code Curator</h1></td>
-    <td>
-        
-    <input id="txtSearch" style="width: 500px"/>
-    <select id="lstPerPage">
-        <option>10</option>
-        <option selected>20</option>
-        <option>50</option>
-        <option>100</option>
-    </select>
-    <input type="button" value="Search" id="btnSearch" />
-        </td>
-    </tr>
-    <tr>
-    <td style="border-width: thin; border-right-style: inset; vertical-align: top;">
-    <div id="facetsDiv"> </div>
-    </td>
-    <td style="padding: 20px">
-    <div id="resultsDiv">
-    
-    </div>
-    </td>
-    </tr>
-    </table>
     <div id="loadingScreen" style="display: none">
-    <center>
-    <h1>Loading Results</h1>
-    <img src="Images/ajax-loader.gif" /></center>
+    <h3>Loading Results</h3>
+    <img src="Images/ajax-loader.gif" />
     </div>
 
     <div id="errorScreen" style="display: none">
-    <center>
-    <h1>Error while searching:</h1>
-    Something in your search string must be causing an issue with Solr. Don't search for blank values or use too much punctuation (for now).
-    </center>
+    
+    <h2>Error while searching:</h2>
+    Something in your search string must be causing an issue with Solr. Don't search for too much punctuation (for now).
+    
     </div>
 
 
      <script id="resultsTemplate" type="text/x-jQuery-tmpl">
         <div>
-            <b>${response.numFound}</b> results in <b>${responseHeader.QTime}ms</b><br/><br/>
+            <span class="label notice"><b>${response.numFound}</b> results in <b>${responseHeader.QTime}ms</b></span>
+            <br/><br/>
             
             Showing records ${(_searchParams.pageSize*_searchParams.pageNumber)+1} through ${getMaxRecordCount()}<br/><br/>
-
+            <table class="zebra-striped">
              {{each(i,doc) response.docs}}
-                <a href="detail.html?id=${doc.id}&searchQuery=${responseHeader.params.q}" target="_blank"><b>${doc.name}</b></a><br/>
-               ..{{html highlighting[doc.id].filedata}}..
-               <br/>
-               <small>${doc.fullpath}</small>
-               <br/>
-               <small><i>Indexed: ${formatTimestamp(doc.timestamp)}</i></small>
-               <br/>
-               <br/>
+                <tr>
+					    <td>
+                            <a href="detail.html?id=${doc.id}&searchQuery=${responseHeader.params.q}" target="_blank"><b>${doc.name}</b></a><br/>
+                           ..{{html highlighting[doc.id].filedata}}..
+                           <br/>
+                           <small>${doc.fullpath}</small>
+                           <br/>
+                           <small><i>Indexed: ${formatTimestamp(doc.timestamp)}</i></small>
+                           <br/>
+                           <br/>
+                </td>
+			   </tr>
              {{/each}}
              <br/>
+             </table> 
              
              {{if _searchResults.pages.length>1 }}
+                <div class="pagination">
                  {{if _searchParams.pageNumber!=0}}
                     <a href="#top" class="searchPagerBack">&lt;&lt;&lt;</a>
                  {{/if}}
                           
                  {{each(i,temp) _searchResults.pages }}
                  {{if i==_searchParams.pageNumber}}
-                    ${i+1}
+                   <li class="active"><a href="#">${i+1}</a></li>
                  {{else}}
                  <a href="#top" class="searchPager">${i+1}</a>
                  {{/if}}
@@ -89,8 +101,9 @@
                  {{/each}}
 
                  {{if (_searchParams.pageNumber+1) < totalPages() }}
-                    <a href="#top" class="searchPagerForward">&gt;&gt;&gt;</a>
+                    <a href="#top" class="searchPagerForward next">&gt;&gt;&gt;</a>
                  {{/if}}
+                 </div>
             {{/if}}
 
         </div>
