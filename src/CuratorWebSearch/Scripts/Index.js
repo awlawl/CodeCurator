@@ -10,7 +10,7 @@ var _searchParams = {
 
 var _searchResults = {
     pages : new Array(),
-    numFound : 0,
+    numFound : 0
 };
 
 function totalPages() {
